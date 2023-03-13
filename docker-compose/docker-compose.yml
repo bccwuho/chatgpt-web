@@ -6,6 +6,8 @@ services:
     ports:
       - 3002:3002
     environment:
+    #####
+      SYSTEM_MESSAGE: xxxx
       # 二选一
       OPENAI_API_KEY: xxxx
       # 二选一
