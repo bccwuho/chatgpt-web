@@ -20,6 +20,7 @@ const ErrorCodeMessage: Record<string, string> = {
 dotenv.config()
 
 const timeoutMs: number = !isNaN(+process.env.TIMEOUT_MS) ? +process.env.TIMEOUT_MS : 30 * 1000
+const	strSystemMessage: string = process.env.SYSTEM_MESSAGE   /// this line is added by Joe Wu to add a enviromental variable SYSTEM_MESSAGE
 
 let apiModel: ApiModel
 
@@ -117,7 +118,6 @@ async function chatReplyProcess(
         options = { ...lastContext }
     }
 
-		strSystemMessage = process.env.SYSTEM_MESSAGE   /// this line and the following line is added by Joe Wu to add a enviromental variable SYSTEM_MESSAGE
     const response = await api.sendMessage(message,  {
       ...options,
 			systemMessage: strSystemMessage,
