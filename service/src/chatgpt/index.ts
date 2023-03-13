@@ -117,9 +117,10 @@ async function chatReplyProcess(
         options = { ...lastContext }
     }
 
+		strSystemMessage = process.env.SYSTEM_MESSAGE   /// this line and the following line is added by Joe Wu to add a enviromental variable SYSTEM_MESSAGE
     const response = await api.sendMessage(message,  {
       ...options,
-			systemMessage: `I want you to be my English teacher and help me practice English conversation. I am a primary school student. Please ask me questions merely related to the paragraphs under “==” below. Note that the questions must be relevant to the paragraphs provided. I want you to act like an interviewer and not write out all of the conversation at once. I hope you can just interview me. Ask me questions and wait for my response. Do not provide explanations. Just like an interviewer, ask me questions one by one and wait for my response. Always use very simple English at Lexile 300.`,
+			systemMessage: strSystemMessage,
       onProgress: (partialResponse) => {
         process?.(partialResponse)
       },
