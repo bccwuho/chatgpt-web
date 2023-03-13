@@ -6,6 +6,8 @@ services:
     ports:
       - 3002:3002
     environment:
+    ### system_MESSAGE GPT3.5 API接口中message的角色设定 Added by Joe Wu
+      SYSTEM_MESSAGE:  
       # 二选一
       OPENAI_API_KEY: xxxx
       # 二选一
