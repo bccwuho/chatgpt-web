@@ -118,10 +118,8 @@ async function chatReplyProcess(
     }
 
     const response = await api.sendMessage(message,  {
-  		systemMessage: `You are ChatGPT, a large language model trained by OpenAI. You answer as concisely as possible for each responseIf you are generating a list, do not have too many items.`
-			},
-		{
       ...options,
+			systemMessage: `You are ChatGPT, a large language model trained by OpenAI. You answer as concisely as possible for each responseIf you are generating a list, do not have too many items.`,
       onProgress: (partialResponse) => {
         process?.(partialResponse)
       },
